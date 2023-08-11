@@ -1,7 +1,8 @@
+import Page from '../pages/page';
 import './index.scss';
 
 const App = () => {
-  return <>Market App</>;
+  return <Page />;
 };
 
 export default App;

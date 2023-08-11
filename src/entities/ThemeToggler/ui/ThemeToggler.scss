@@ -1,0 +1,71 @@
+.toggle-button {
+  $toggler-width: 58px;
+  $button-width: 23px;
+
+  &__checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    & + .toggle-button__label {
+      display: inline-flex;
+      position: relative;
+      vertical-align: middle;
+      font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 1.5rem;
+      color: gray;
+      user-select: none;
+      cursor: pointer;
+    }
+
+    & + .toggle-button__label::before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: $toggler-width;
+      border: 1px solid #17161c;
+      height: 27px;
+      background:
+        url(images/night.svg) no-repeat calc($toggler-width - $button-width) /
+          calc($button-width - 7px),
+        #17161c;
+      border-radius: 50px;
+      transition: border-color ease 0.3s;
+      transition: background-color ease 0.3s;
+      cursor: pointer;
+    }
+
+    &:hover + .toggle-button__label::before {
+      border-color: #403e4e;
+    }
+
+    &:checked + .toggle-button__label::before {
+      border-color: #c2c2c2;
+      background:
+        url(images/sun.svg) no-repeat 5px / calc($button-width - 3px),
+        #c2c2c2;
+    }
+
+    & + .toggle-button__label::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      display: inline-block;
+      border-radius: 50%;
+      background-color: #fff;
+      width: $button-width;
+      height: 22px;
+      transition: left ease 0.3s;
+    }
+
+    &:checked + .toggle-button__label::after {
+      left: calc($toggler-width - $button-width - 2px);
+      background-color: #fff;
+    }
+  }
+}
