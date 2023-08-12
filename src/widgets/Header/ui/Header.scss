@@ -1,0 +1,27 @@
+@import '../../../app/styles/variables.scss';
+
+.header {
+  &__content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--page-padding-mobile);
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+  }
+
+  &__text {
+    @include font-montserrat-700;
+    font-size: var(--font-size-l);
+    color: var(--header-text-color-light-theme);
+    margin: 8px 0;
+  }
+
+  &__delimiter {
+    border-bottom: 1px solid var(--header-delimiter-color-light-theme);
+
+    &_dark {
+      border-color: var(--header-delimiter-color-dark-theme);
+    }
+  }
+}

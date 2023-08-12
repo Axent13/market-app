@@ -1,2 +1,11 @@
+@import './styles/variables.scss';
 @import './styles/index.scss';
 @import './fonts/index.scss';
+
+.app {
+  background-color: var(--page-background-light-theme);
+
+  &_dark {
+    background-color: var(--page-background-dark-theme);
+  }
+}

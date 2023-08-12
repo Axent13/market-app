@@ -1,7 +1,7 @@
-import { ThemeToggler } from '../entities/ThemeToggler';
+import { Header } from '../widgets/Header';
 
 const Page = () => {
-  return <ThemeToggler />;
+  return <Header />;
 };
 
 export default Page;

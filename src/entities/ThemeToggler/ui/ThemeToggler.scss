@@ -27,12 +27,12 @@
       flex-grow: 0;
       flex-shrink: 0;
       width: $toggler-width;
-      border: 1px solid #17161c;
+      border: 1px solid var(--toggler-background-light-theme);
       height: 27px;
       background:
         url(images/night.svg) no-repeat calc($toggler-width - $button-width) /
           calc($button-width - 7px),
-        #17161c;
+        var(--toggler-background-light-theme);
       border-radius: 50px;
       transition: border-color ease 0.3s;
       transition: background-color ease 0.3s;
@@ -47,7 +47,7 @@
       border-color: #c2c2c2;
       background:
         url(images/sun.svg) no-repeat 5px / calc($button-width - 3px),
-        #c2c2c2;
+        var(--toggler-background-dark-theme);
     }
 
     & + .toggle-button__label::after {
@@ -57,7 +57,7 @@
       left: 4px;
       display: inline-block;
       border-radius: 50%;
-      background-color: #fff;
+      background-color: var(--toggler-switcher-background);
       width: $button-width;
       height: 22px;
       transition: left ease 0.3s;
@@ -65,7 +65,7 @@
 
     &:checked + .toggle-button__label::after {
       left: calc($toggler-width - $button-width - 2px);
-      background-color: #fff;
+      background-color: var(--toggler-switcher-background);
     }
   }
 }

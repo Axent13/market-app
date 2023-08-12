@@ -1,0 +1,39 @@
+:root {
+  --page-max-width: 1200px;
+
+  --page-padding-mobile: 10px;
+
+  --page-background-light-theme: #fff;
+  --page-background-dark-theme: #1e1e1e;
+
+  --font-size-l: 24px;
+  --font-size-m: 16px;
+  --font-size-s: 14px;
+
+  --header-text-color-light-theme: #444;
+  --header-text-color-dark-theme: #fff;
+
+  --header-delimiter-color-light-theme: #e1e1e1;
+  --header-delimiter-color-dark-theme: #444;
+
+  --placeholder-color: #868686;
+
+  --input-border-color-light-theme: #d7d7d7;
+  --input-border-color-dark-theme: #444;
+
+  --toggler-background-light-theme: #17161c;
+  --toggler-background-dark-theme: #c2c2c2;
+  --toggler-switcher-background: #fff;
+
+  --main-text-color-light-theme: #000;
+  --main-text-color-dark-theme: #fff;
+
+  --secondary-text-color-light-theme: #1d448e;
+  --secondary-text-color-dark-theme: #547ac5;
+}
+
+@mixin font-montserrat-700 {
+  font-family: 'Montserrat';
+  font-weight: bold;
+  font-style: normal;
+}
