@@ -32,6 +32,10 @@
   --secondary-text-color-dark-theme: #547ac5;
 }
 
+@mixin easeTransition($property) {
+  transition: $property ease 0.3s;
+}
+
 @mixin font-montserrat-700 {
   font-family: 'Montserrat';
   font-weight: bold;

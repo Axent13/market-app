@@ -1,6 +1,9 @@
+import { useTheme } from '../../../shared/theme/useTheme';
 import './ThemeToggler.scss';
 
 export const ThemeToggler = () => {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div className='toggle-button'>
       <input
@@ -8,6 +11,7 @@ export const ThemeToggler = () => {
         type='checkbox'
         name='theme-toggler'
         id='theme-toggler'
+        onClick={toggleTheme}
       />
       <label className='toggle-button__label' htmlFor='theme-toggler'></label>
     </div>

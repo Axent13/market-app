@@ -1,6 +1,9 @@
 @import '../../../app/styles/variables.scss';
 
 .header {
+  background-color: var(--page-background-light-theme);
+  @include easeTransition(background-color);
+
   &__content-wrapper {
     display: flex;
     justify-content: space-between;
@@ -10,11 +13,19 @@
     margin: 0 auto;
   }
 
+  &_dark {
+    background-color: var(--page-background-dark-theme);
+  }
+
   &__text {
     @include font-montserrat-700;
     font-size: var(--font-size-l);
     color: var(--header-text-color-light-theme);
     margin: 8px 0;
+
+    &_dark {
+      color: var(--header-text-color-dark-theme);
+    }
   }
 
   &__delimiter {
