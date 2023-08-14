@@ -12,7 +12,6 @@ export function useTheme(): UseThemeResult {
   const toggleTheme = () => {
     const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
     setTheme!(newTheme);
-    console.log('Theme has been changed to: ', newTheme);
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 

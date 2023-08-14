@@ -1,0 +1,15 @@
+@import '../../../app/styles/variables.scss';
+
+.main-page {
+  @include easeTransition(background);
+  background: var(--page-background-light-theme);
+
+  &_dark {
+    background: var(--page-background-dark-theme);
+  }
+
+  &__products-wrapper {
+    max-width: var(--page-max-width);
+    margin: 30px auto 0;
+  }
+}

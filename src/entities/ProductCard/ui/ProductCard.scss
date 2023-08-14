@@ -1,0 +1,42 @@
+@import '../../../app/styles/variables.scss';
+
+.product-card {
+  $image-size-mobile: 172px;
+  $image-size-standard: 182px;
+
+  width: $image-size-mobile;
+  border-radius: 4px;
+
+  &__image {
+    height: $image-size-mobile;
+    border: 1px solid var(--product-card-border-color-light-theme);
+
+    &_dark {
+      border-color: var(--product-card-border-color-dark-theme);
+    }
+  }
+
+  &__title {
+    @include font-montserrat-400;
+    font-size: var(--font-size-s);
+    color: var(--main-text-color-light-theme);
+
+    &_dark {
+      color: var(--main-text-color-dark-theme);
+    }
+
+    @media (min-width: 1024px) {
+      font-size: var(--font-size-m);
+    }
+  }
+
+  &__price {
+    @include font-montserrat-700;
+    font-size: var(--font-size-m);
+    color: var(--secondary-text-color-light-theme);
+
+    &_dark {
+      color: var(--secondary-text-color-dark-theme);
+    }
+  }
+}

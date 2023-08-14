@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useProducts } from '../../../features/useProducts/model/useProducts';
 import { ProductsAPI } from '../api';
+import { ProductCard } from '../../../entities/ProductCard/ui/ProductCard';
+import './ProductsList.scss';
+import clsx from 'clsx';
 
 export const ProductsList = () => {
   const { products, fetchEvent } = useProducts();
@@ -10,19 +13,18 @@ export const ProductsList = () => {
   }, []);
 
   return (
-    <div>
-      Products List
+    <div className={clsx('products-list')}>
       {products ? (
-        <div>
-          current products:{' '}
+        <>
           {products.map((product) => (
-            <div>
-              {product.images[0]}
-              {product.title}
-              {product.price}
-            </div>
+            <ProductCard
+              key={product.id}
+              imageUrl={product.images[0]}
+              price={product.price}
+              title={product.title}
+            />
           ))}
-        </div>
+        </>
       ) : (
         <div>Loading...</div>
       )}

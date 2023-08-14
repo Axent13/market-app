@@ -1,8 +1,6 @@
 :root {
   --page-max-width: 1200px;
-
   --page-padding-mobile: 10px;
-
   --page-background-light-theme: #fff;
   --page-background-dark-theme: #1e1e1e;
 
@@ -30,6 +28,9 @@
 
   --secondary-text-color-light-theme: #1d448e;
   --secondary-text-color-dark-theme: #547ac5;
+
+  --product-card-border-color-light-theme: #d7d7d7;
+  --product-card-border-color-dark-theme: #0b0b0b;
 }
 
 @mixin easeTransition($property) {
@@ -39,5 +40,11 @@
 @mixin font-montserrat-700 {
   font-family: 'Montserrat';
   font-weight: bold;
+  font-style: normal;
+}
+
+@mixin font-montserrat-400 {
+  font-family: 'Montserrat';
+  font-weight: normal;
   font-style: normal;
 }

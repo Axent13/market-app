@@ -1,11 +1,11 @@
-import Page from '../pages/page';
+import { MainPage } from '../pages/MainPage/ui/MainPage';
 import './index.scss';
 import { ThemeProvider } from '../shared/theme/ThemeProvider';
 
 const App = () => {
   return (
     <ThemeProvider>
-      <Page />
+      <MainPage />
     </ThemeProvider>
   );
 };

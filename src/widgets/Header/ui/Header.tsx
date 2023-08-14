@@ -19,7 +19,11 @@ export const Header = () => {
         </h1>
         <ThemeToggler />
       </div>
-      <div className='header__delimiter'></div>
+      <div
+        className={clsx('header__delimiter', {
+          header__delimiter_dark: theme === Theme.DARK,
+        })}
+      ></div>
     </header>
   );
 };
