@@ -7,6 +7,7 @@ import './ProductsWithFilters.scss';
 import { ProductsAPI } from '../api';
 import { useTheme } from '../../../shared/theme/useTheme';
 import { Theme } from '../../../shared/theme/ThemeContext';
+import { Dropdown } from '../../../entities/Dropdown/ui/Dropdown';
 
 interface InputsData {
   search: string;
@@ -28,32 +29,65 @@ export const ProductsWithFilters = () => {
     }));
   };
 
-  const { products, fetchEvent } = useProducts();
+  const { products, categories, fetchProductsEvent, fetchCategoriesEvent } =
+    useProducts();
 
   useEffect(() => {
-    fetchEvent(ProductsAPI.GET_ALL_PRODUCTS);
+    fetchProductsEvent(ProductsAPI.GET_ALL_PRODUCTS);
+    fetchCategoriesEvent(ProductsAPI.GET_CATEGORIES);
   }, []);
 
   const sendFormData = (e: any) => {
     e.preventDefault();
-    fetchEvent(`${ProductsAPI.SEARCH_PRODUCTS}${data.search}`);
+    fetchProductsEvent(`${ProductsAPI.SEARCH_PRODUCTS}${data.search}`);
   };
+
+  const [seletedCategory, setSelectedCategory] = useState<string>('');
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  const handleDropdownSelect = (item: string) => {
+    setSelectedCategory(item);
+  };
+
+  useEffect(() => {
+    setFilteredProducts(products);
+  }, [products]);
+
+  useEffect(() => {
+    if (seletedCategory !== '') {
+      setFilteredProducts(
+        products.filter((product) => {
+          return product.category === seletedCategory;
+        })
+      );
+    }
+  }, [seletedCategory]);
 
   return (
     <>
-      <form onSubmit={sendFormData}>
-        <div className={clsx('products-with-filters__search-input')}>
-          <SearchField
-            name='search'
-            value={data.search}
-            placeholder='Search'
-            onChange={handleChange}
-          />
+      <div className={clsx('products-with-filters__filters')}>
+        <form onSubmit={sendFormData}>
+          <div className={clsx('products-with-filters__search-input')}>
+            <SearchField
+              name='search'
+              value={data.search}
+              placeholder='Search'
+              onChange={handleChange}
+            />
+          </div>
+        </form>
+        <div>
+          {categories && (
+            <Dropdown
+              options={categories}
+              onSelectItem={handleDropdownSelect}
+            />
+          )}
         </div>
-      </form>
+      </div>
       <div className={clsx('products-with-filters__products')}>
-        {products ? (
-          <ProductsList products={products} />
+        {filteredProducts ? (
+          <ProductsList products={filteredProducts} />
         ) : (
           <p
             className={clsx('products-with-filters__loading', {

@@ -1,6 +1,11 @@
 @import '../../../app/styles/variables.scss';
 
 .products-with-filters {
+  &__filters {
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr;
+  }
+
   &__search-input {
     max-width: 590px;
   }
