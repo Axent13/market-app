@@ -5,4 +5,4 @@ export interface Product {
   title: string;
 }
 
-export type ProductsList = Product[];
+export type Products = Product[];

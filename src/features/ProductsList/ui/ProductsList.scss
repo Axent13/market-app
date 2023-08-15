@@ -1,3 +1,5 @@
+@import '../../../app/styles/variables.scss';
+
 .products-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -12,5 +14,14 @@
   @media (min-width: 1024px) {
     grid-template-columns: repeat(6, 1fr);
     gap: 22px;
+  }
+
+  &__no-products {
+    @include font-roboto-400;
+    color: var(--main-text-color-light-theme);
+
+    &_dark {
+      color: var(--main-text-color-dark-theme);
+    }
   }
 }

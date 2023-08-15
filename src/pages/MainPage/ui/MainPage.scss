@@ -2,13 +2,14 @@
 
 .main-page {
   @include easeTransition(background);
+  min-height: 100vh;
   background: var(--page-background-light-theme);
 
   &_dark {
     background: var(--page-background-dark-theme);
   }
 
-  &__products-wrapper {
+  &__content-wrapper {
     max-width: var(--page-max-width);
     margin: 30px auto 0;
   }

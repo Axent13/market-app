@@ -1,0 +1,18 @@
+@import '../../../app/styles/variables.scss';
+
+.search-field {
+  @include font-roboto-400;
+  width: 100%;
+  height: 46px;
+  background: none;
+  border: 1px solid var(--input-border-color-light-theme);
+  border-radius: 4px;
+  padding: 16px 12px;
+  color: var(--main-text-color-light-theme);
+  background: url(./images/magnifier.svg) no-repeat 98% / 24px;
+
+  &_dark {
+    border-color: var(--input-border-color-dark-theme);
+    color: var(--main-text-color-dark-theme);
+  }
+}

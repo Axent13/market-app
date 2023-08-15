@@ -1,0 +1,24 @@
+@import '../../../app/styles/variables.scss';
+
+.products-with-filters {
+  &__search-input {
+    max-width: 590px;
+  }
+
+  &__products {
+    margin-top: 30px;
+
+    @media (min-width: 1024px) {
+      margin-top: 15px;
+    }
+  }
+
+  &__loading {
+    @include font-roboto-400;
+    color: var(--main-text-color-light-theme);
+
+    &_dark {
+      color: var(--main-text-color-dark-theme);
+    }
+  }
+}
