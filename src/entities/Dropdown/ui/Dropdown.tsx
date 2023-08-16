@@ -14,7 +14,19 @@ export const Dropdown = ({ options, onSelectItem }: DropdownProps) => {
 
   const [selectedValue, setSelectedValue] = useState<string>('');
   const [isOpened, setIsOpened] = useState(false);
-  const optionsField = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const closeOpenMenus = (e: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      isOpened &&
+      !dropdownRef.current.contains(e.target as HTMLDivElement)
+    ) {
+      setIsOpened(false);
+    }
+  };
+
+  document.addEventListener('mousedown', closeOpenMenus);
 
   const handleDropdownClick = () => {
     setIsOpened((prevState) => !prevState);
@@ -26,7 +38,7 @@ export const Dropdown = ({ options, onSelectItem }: DropdownProps) => {
   };
 
   return (
-    <div className={clsx('dropdown')}>
+    <div className={clsx('dropdown')} ref={dropdownRef}>
       <div className={clsx('dropdown__select dropdown__select_opened')}>
         <div
           className={clsx('dropdown__selected-value', {
@@ -44,7 +56,6 @@ export const Dropdown = ({ options, onSelectItem }: DropdownProps) => {
             dropdown__options_opened: isOpened,
             dropdown__options_dark: theme === Theme.DARK,
           })}
-          ref={optionsField}
         >
           {options.map((option) => {
             return (
