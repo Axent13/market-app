@@ -43,22 +43,31 @@ export const ProductsWithFilters = () => {
   };
 
   const [seletedCategory, setSelectedCategory] = useState<string>('');
-  const [filteredProducts, setFilteredProducts] = useState(products);
 
-  const handleDropdownSelect = (item: string) => {
+  const handleCategorySelect = (item: string) => {
     setSelectedCategory(item);
   };
 
+  const [selectedLimit, setSelectedLimit] = useState<number>(0);
+  const productsLimits = ['10', '20', '50'];
+
+  const handleLimitSelect = (limit: string) => {
+    setSelectedLimit(parseInt(limit));
+  };
+
   useEffect(() => {
-    setFilteredProducts(products);
-  }, [products]);
+    setSelectedCategory('');
+    if (selectedLimit !== 0) {
+      fetchProductsEvent(
+        `${ProductsAPI.GET_ALL_PRODUCTS}&limit=${selectedLimit}`
+      );
+    }
+  }, [selectedLimit]);
 
   useEffect(() => {
     if (seletedCategory !== '') {
-      setFilteredProducts(
-        products.filter((product) => {
-          return product.category === seletedCategory;
-        })
+      fetchProductsEvent(
+        `${ProductsAPI.GET_PRODUCTS_BY_CATEGORY}${seletedCategory}`
       );
     }
   }, [seletedCategory]);
@@ -80,14 +89,17 @@ export const ProductsWithFilters = () => {
           {categories && (
             <Dropdown
               options={categories}
-              onSelectItem={handleDropdownSelect}
+              onSelectItem={handleCategorySelect}
             />
           )}
         </div>
+        <div>
+          <Dropdown options={productsLimits} onSelectItem={handleLimitSelect} />
+        </div>
       </div>
       <div className={clsx('products-with-filters__products')}>
-        {filteredProducts ? (
-          <ProductsList products={filteredProducts} />
+        {products ? (
+          <ProductsList products={products} />
         ) : (
           <p
             className={clsx('products-with-filters__loading', {
