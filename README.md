@@ -1,27 +1,24 @@
-# React + TypeScript + Vite
+# Market App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Задание
 
-Currently, two official plugins are available:
+Нам поступило задание сделать приложение, в котором можно будет удобно просматривать товары из нашего интернет магазина. Так, чтобы была возможность фильтровать товары по категории и по кол-ву выводов товаров на страницу.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Критерии приемки задачи:
 
-## Expanding the ESLint configuration
+Адаптивная верстка сайта по готовому дизайну
+Темная и светлая тема сайта с возможностью переключения
+Поисковая строка поддерживает только латинские символы, цифры и пробелы
+Есть возможность скачать PWA
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Технические требования:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Веб-приложение необходимо реализовать с использованием Vite React/Preact и typescript (create vite market-app –template react-ts).
+- В качестве архитектурной методологии необходимо использовать Feature-Sliced Design (https://feature-sliced.design/) c подключенным eslint конфигом.
+- Для реализации бизнес логики нужно использовать effector и effector/reflect (https://effector.dev/).
+- Для стилизации используйте scss и clsx.
+- Для валидации необходимо использовать регулярные выражения.
+- При сборке приложения нужно изменить файлы в папке /dist:
+  - Переименовать /dist -> /build
+  - Переименовать /assets -> /static
+  - Отсортировать файлы внутри папки dist/assets по папкам /js, /css, /img.
