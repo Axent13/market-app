@@ -4,10 +4,11 @@
   &__filters {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 9px;
 
     @media (min-width: 576px) {
       flex-direction: row;
+      gap: 32px;
     }
   }
 
