@@ -7,9 +7,14 @@ import { Theme } from '../../../shared/theme/ThemeContext';
 interface DropdownProps {
   options: string[];
   onSelectItem: (option: string) => void;
+  defaultText: string;
 }
 
-export const Dropdown = ({ options, onSelectItem }: DropdownProps) => {
+export const Dropdown = ({
+  options,
+  onSelectItem,
+  defaultText,
+}: DropdownProps) => {
   const { theme } = useTheme();
 
   const [selectedValue, setSelectedValue] = useState<string>('');
@@ -48,7 +53,7 @@ export const Dropdown = ({ options, onSelectItem }: DropdownProps) => {
           onClick={handleDropdownClick}
         >
           {selectedValue || (
-            <span className={clsx('dropdown__placeholder')}>Category</span>
+            <span className={clsx('dropdown__placeholder')}>{defaultText}</span>
           )}
         </div>
         <div

@@ -11,6 +11,7 @@
 
   &__content-wrapper {
     max-width: var(--page-max-width);
+    padding: 0 var(--page-padding);
     margin: 30px auto 0;
   }
 }

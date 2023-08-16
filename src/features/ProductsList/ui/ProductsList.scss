@@ -1,19 +1,13 @@
 @import '../../../app/styles/variables.scss';
 
 .products-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
-  gap: 12px;
-
-  @media (min-width: 576px) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 13px;
 
   @media (min-width: 1024px) {
-    grid-template-columns: repeat(6, 1fr);
-    gap: 22px;
+    gap: 20px;
   }
 
   &__no-products {

@@ -75,7 +75,10 @@ export const ProductsWithFilters = () => {
   return (
     <>
       <div className={clsx('products-with-filters__filters')}>
-        <form onSubmit={sendFormData}>
+        <form
+          onSubmit={sendFormData}
+          className={clsx('products-with-filters__form-with-search')}
+        >
           <div className={clsx('products-with-filters__search-input')}>
             <SearchField
               name='search'
@@ -85,16 +88,21 @@ export const ProductsWithFilters = () => {
             />
           </div>
         </form>
-        <div>
+        <div className={clsx('products-with-filters__category-dropdown')}>
           {categories && (
             <Dropdown
               options={categories}
               onSelectItem={handleCategorySelect}
+              defaultText='Category'
             />
           )}
         </div>
-        <div>
-          <Dropdown options={productsLimits} onSelectItem={handleLimitSelect} />
+        <div className={clsx('products-with-filters__limit-dropdown')}>
+          <Dropdown
+            options={productsLimits}
+            onSelectItem={handleLimitSelect}
+            defaultText='10'
+          />
         </div>
       </div>
       <div className={clsx('products-with-filters__products')}>

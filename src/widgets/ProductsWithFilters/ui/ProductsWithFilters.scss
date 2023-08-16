@@ -2,12 +2,38 @@
 
 .products-with-filters {
   &__filters {
-    display: grid;
-    grid-template-columns: 3fr 2fr 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @media (min-width: 576px) {
+      flex-direction: row;
+    }
   }
 
-  &__search-input {
-    max-width: 590px;
+  &__form-with-search {
+    width: 100%;
+
+    @media (min-width: 576px) {
+      width: 582px;
+    }
+  }
+
+  &__category-dropdown {
+    width: 100%;
+    z-index: 10;
+
+    @media (min-width: 576px) {
+      width: 379px;
+    }
+  }
+
+  &__limit-dropdown {
+    width: 100%;
+
+    @media (min-width: 576px) {
+      width: 174px;
+    }
   }
 
   &__products {
