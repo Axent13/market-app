@@ -2,7 +2,7 @@ import { useTheme } from '../../../shared/theme/useTheme';
 import './ThemeToggler.scss';
 
 export const ThemeToggler = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { toggleTheme } = useTheme();
 
   return (
     <div className='toggle-button'>
